@@ -1,0 +1,19 @@
+---
+layout: post
+---
+
+{{ content }}
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'tangdaojun',
+    repo: 'tangdaojun.github.io',
+    oauth: {
+        client_id: '576e545a54a9c638dd1f',
+        client_secret: '699ccaf0a10ebc8fff028cd630e6147bb39fa88d',
+    },
+});
+gitment.render('gitmentContainer');
+</script>
