@@ -1,0 +1,40 @@
+---
+layout: git-wiki-default
+---
+
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+{% if page.author or site.author %}
+<p class="view">by {{ page.author | default: site.author }}</p>
+{% endif %}
+
+<p>
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+</p>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+{{content}}
+
+<div id='gitalk-container'></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '576e545a54a9c638dd1f',
+  clientSecret: '699ccaf0a10ebc8fff028cd630e6147bb39fa88d',
+  repo: 'tangdaojun.github.io',
+  owner: 'tangdaojun',
+  admin: ['tangdaojun'],
+  id: '{{ page.title }}',      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+</script>
+
+
+{% if page.tags.size > 0 %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}

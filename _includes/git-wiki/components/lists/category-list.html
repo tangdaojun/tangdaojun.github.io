@@ -1,0 +1,10 @@
+<div class="git-wiki-page-list">
+    <span class="page-list-title">分类</span>
+    <ul class="page-list">
+        {% for category in site.categories %}
+        <li class="page-list-item">
+          <font color="#39c">{{ category | first }} ({{ category | last | size }})</font>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
